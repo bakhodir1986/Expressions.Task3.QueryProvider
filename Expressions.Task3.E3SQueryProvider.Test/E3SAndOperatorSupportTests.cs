@@ -24,11 +24,11 @@ namespace Expressions.Task3.E3SQueryProvider.Test
         {
             var translator = new ExpressionToFtsRequestTranslator();
             Expression<Func<IQueryable<EmployeeEntity>, IQueryable<EmployeeEntity>>> expression
-                = query => query.Where(e => e.Workstation == "EPRUIZHW010" && e.Manager.StartsWith("Baxa"));
+                = query => query.Where(e => e.Workstation == "EPRUIZHW006" && e.Manager.StartsWith("Baxa"));
 
             string transtated = translator.Translate(expression);
 
-            Assert.Equal("Workstation:(EPRUIZHW010) AND Manager:(Baxa*)", transtated);
+            Assert.Equal("Workstation:(EPRUIZHW006) AND Manager:(Baxa*)", transtated);
         }
 
         #endregion
